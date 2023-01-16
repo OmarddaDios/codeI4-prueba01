@@ -8,6 +8,11 @@
 </head>
 <body>
     <h1>Listado de Categorias</h1>
+    <br>
+    <?= session('key'); ?>
+    <br>
+    <?= view('partials/_session.php'); ?>
+    <br>
     <a href="/dashboard/categoria/new/">Crear</a>
     <table>
         <tr>

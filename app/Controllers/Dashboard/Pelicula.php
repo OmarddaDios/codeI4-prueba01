@@ -20,11 +20,19 @@ class Pelicula extends BaseController
     public function create()
     {
         $peliculaModel= new PeliculaModel();
+        if($this->validate('peliculas')){
         $peliculaModel->insert([
             'titulo' =>$this->request->getPost('titulo'), 
             'descripcion' =>$this->request->getPost('descripcion')
             
         ]);
+        } else {
+        // var_dump($this->validator->getError('titulo'));
+        session()->setFlashdata([
+            'validation'=> $this->validator
+        ]);
+        return redirect()->back();
+        }
         return redirect()->to('/dashboard/pelicula')->with('hellothere', 'Registro exitoso');
        
     }
@@ -40,12 +48,19 @@ class Pelicula extends BaseController
     public function update($id)
     {
         $peliculaModel= new PeliculaModel();
-        $peliculaModel->update($id,[
-            'titulo' =>$this->request->getPost('titulo'),
-            'descripcion' =>$this->request->getPost('descripcion')
-        ]);
-        
-        return redirect()->to('/dashboard/pelicula')->with('hellothere', 'Update exitoso');
+        if($this->validate('peliculas')){
+            $peliculaModel->update($id,[
+                'titulo' =>$this->request->getPost('titulo'),
+                'descripcion' =>$this->request->getPost('descripcion')
+            ]);
+        } else {
+            // var_dump($this->validator->getError('titulo'));
+            session()->setFlashdata([
+                'validation'=> $this->validator
+            ]);
+            return redirect()->back();
+        }
+         return redirect()->to('/dashboard/pelicula')->with('hellothere', 'Update exitoso');
     }
 
     public function delete($id)
@@ -58,7 +73,7 @@ class Pelicula extends BaseController
     }
 
     public function index(){
-
+     session()->set('key', 'sesion activa');
         $peliculaModel= new PeliculaModel();
         
         echo view('Dashboard/pelicula/index.php', [

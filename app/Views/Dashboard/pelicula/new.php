@@ -8,6 +8,8 @@
 </head>
 <body>
     <form action="/dashboard/pelicula/create" method="post">
+    <?= view('partials/_formerrors.php') ?>
+    <br>
         <label for="titulo">Tittle</label>
         <input type="text" name="titulo" id="titulo">
         <br>

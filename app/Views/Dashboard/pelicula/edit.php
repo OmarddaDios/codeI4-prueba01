@@ -8,6 +8,7 @@
 </head>
 <body>
     <form action="/dashboard/pelicula/update/<?= $pelicula['id'] ?>" method="post">
+        <?= view('partials/_formerrors.php') ?>
         <label for="titulo">Tittle</label>
         <input type="text" name="titulo" id="titulo" value="<?= $pelicula['titulo'] ?>">
         <br>

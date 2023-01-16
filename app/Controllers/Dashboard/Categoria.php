@@ -31,9 +31,19 @@ class Categoria extends BaseController
     public function create()
     {
         $categoriaModel= new CategoriaModel();
+        if($this->validate('categorias')){
         $categoriaModel->insert([
+            'id'=>$this->request->getPost('id'),
             'titulo'=>$this->request->getPost('titulo')
         ]);
+        } else {
+            session()->setFlashdata([
+                'validation'=>$this->validator
+            ]);
+            return redirect()->back()->withInput();
+        }
+        return redirect()->to('dashboard/categoria')->with('hellothere', 'Registro creado');
+
     }
     public function new()
     {
@@ -43,13 +53,23 @@ class Categoria extends BaseController
     {
         $categoriaModel= new CategoriaModel();
         $categoriaModel->delete($id);
-        echo "Delete";
+        session()->setFlashdata('hellothere', 'Registro eliminado');
+        return redirect()->back();
     }
     public function update($id)
     {
         $categoriaModel= new CategoriaModel();
+        if($this->validate('categorias')){
         $categoriaModel->update($id, [
+            'id'=>$this->request->getPost('id'),
             'titulo'=>$this->request->getPost('titulo')
         ]);
+        } else {
+            session()->setFlashdata([
+                'validation'=> $this->validator
+            ]);
+            return redirect()->back()->withInput();
+        }
+        return redirect()->to('/dashboard/categoria')->with('hellothere', 'Registro actualizado');
     }
 }
