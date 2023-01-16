@@ -34,8 +34,13 @@ $routes->set404Override();
 //ejemplos
 // $routes->get('/Pelicula', 'Pelicula::index');
 // $routes->get('Pelicula/new', 'Pelicula::create');
-$routes->presenter('pelicula');
-$routes->presenter('categoria');
+$routes->group('dashboard', function($routes){
+    // $routes->presenter('pelicula', ['only' => 'index']);
+    // $routes->resources('pelicula', ['only' => 'index']);
+    // $routes->presenter('pelicula', ['only' => ['index', 'new', 'create']]);
+    $routes->presenter('pelicula', ['controller' => 'Dashboard\Pelicula']);
+    $routes->presenter('categoria', ['except' => 'show', 'controller' => 'Dashboard\Categoria']);
+});
 /*
  * --------------------------------------------------------------------
  * Additional Routing

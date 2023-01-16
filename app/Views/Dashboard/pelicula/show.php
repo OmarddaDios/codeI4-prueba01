@@ -9,5 +9,7 @@
 <body>
     <h2><?= $peliculas['titulo'] ?></h2>
     <p><?= $peliculas['descripcion'] ?></p>
+    <br>    
+    <a href="/dashboard/pelicula">Return</a>
 </body>
 </html>

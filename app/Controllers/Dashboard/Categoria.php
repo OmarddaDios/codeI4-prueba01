@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controllers\Dashboard;
 use App\Models\CategoriaModel;
-
+use App\Controllers\BaseController;
 
 class Categoria extends BaseController
 {
@@ -10,21 +10,21 @@ class Categoria extends BaseController
 
         $categoriaModel= new CategoriaModel();
         
-        echo view('/categoria/index.php', [
+        echo view('Dashboard/categoria/index.php', [
             'categorias' => $categoriaModel->findAll(),
         ]);
     }
     public function show($id)
     {
         $categoriaModel=  new CategoriaModel();
-        echo view('/categoria/show.php',[
+        echo view('Dashboard/categoria/show.php',[
             'categorias'=>$categoriaModel->find($id)
         ]);
     }
     public function edit($id)
     {
         $categoriaModel= new CategoriaModel();
-        echo view('/categoria/edit.php', [
+        echo view('Dashboard/categoria/edit.php', [
             'categorias'=>$categoriaModel->find($id)
         ]);
     }
@@ -37,7 +37,7 @@ class Categoria extends BaseController
     }
     public function new()
     {
-        echo view('/categoria/new.php');
+        echo view('Dashboard/categoria/new.php');
     }
     public function delete($id)
     {

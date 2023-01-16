@@ -7,7 +7,7 @@
     <title>Emdit</title>
 </head>
 <body>
-    <form action="/pelicula/update/<?= $pelicula['id'] ?>" method="post">
+    <form action="/dashboard/pelicula/update/<?= $pelicula['id'] ?>" method="post">
         <label for="titulo">Tittle</label>
         <input type="text" name="titulo" id="titulo" value="<?= $pelicula['titulo'] ?>">
         <br>

@@ -7,12 +7,9 @@
     <title>En blanco</title>
 </head>
 <body>
-    <form action="/pelicula/create" method="post">
+    <form action="/dashboard/categoria/create" method="post">
         <label for="titulo">Tittle</label>
         <input type="text" name="titulo" id="titulo">
-        <br>
-        <label for="descripcion">Description</label>
-        <input type="textarea" name="descripcion" id="descripcion">
         <br>
         <button type="submit">Send</button>
     </form>
