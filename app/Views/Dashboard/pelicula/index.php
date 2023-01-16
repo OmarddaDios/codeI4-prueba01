@@ -8,6 +8,9 @@
 </head>
 <body>
     <h1>Listado de Peliculas</h1>
+    <br>
+    <?= view('partials/_session.php'); ?>
+    <br>
     <a href="/dashboard/pelicula/new/">Crear</a>
     <table>
         <tr>

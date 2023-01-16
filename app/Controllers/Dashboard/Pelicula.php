@@ -25,7 +25,7 @@ class Pelicula extends BaseController
             'descripcion' =>$this->request->getPost('descripcion')
             
         ]);
-        return redirect()->to('/dashboard/pelicula');
+        return redirect()->to('/dashboard/pelicula')->with('hellothere', 'Registro exitoso');
        
     }
 
@@ -45,14 +45,16 @@ class Pelicula extends BaseController
             'descripcion' =>$this->request->getPost('descripcion')
         ]);
         
-        return redirect()->to('/dashboard/pelicula');
+        return redirect()->to('/dashboard/pelicula')->with('hellothere', 'Update exitoso');
     }
 
     public function delete($id)
     {
         $peliculaModel= new PeliculaModel();
         $peliculaModel->delete($id);
+        session()->setFlashdata('hellothere', 'Registro eliminado');
         return redirect()->back();
+        // return redirect()->back()->with('hellothere', 'Registro exitoso');
     }
 
     public function index(){
