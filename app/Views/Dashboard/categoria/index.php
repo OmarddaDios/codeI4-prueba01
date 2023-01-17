@@ -23,14 +23,14 @@
         </tr>
      <?php foreach ($categorias as $key => $value) : ?>
         <tr>
-            <td><?= $value['id'] ?></td>
-            <td><?= $value['titulo'] ?></td>
+            <td><?= $value->id ?></td>
+            <td><?= $value->titulo ?></td>
             
             
             <td>
-                <a href="/dashboard/categoria/show/<?= $value['id'] ?>">Show</a>
-                <a href="/dashboard/categoria/edit/<?= $value['id'] ?>">Edit</a>
-                <form action="/dashboard/categoria/delete/<?= $value['id'] ?>" method="post">
+                <a href="/dashboard/categoria/show/<?= $value->id ?>">Show</a>
+                <a href="/dashboard/categoria/edit/<?= $value->id ?>">Edit</a>
+                <form action="/dashboard/categoria/delete/<?= $value->id ?>" method="post">
                     <button type="submit">Delete</button>
                 </form>
             </td>

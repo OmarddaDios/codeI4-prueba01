@@ -54,7 +54,7 @@ class Pelicula extends BaseController
                 'descripcion' =>$this->request->getPost('descripcion')
             ]);
         } else {
-            // var_dump($this->validator->getError('titulo'));
+            //  $this->validator->getError('titulo');
             session()->setFlashdata([
                 'validation'=> $this->validator
             ]);
@@ -75,7 +75,9 @@ class Pelicula extends BaseController
     public function index(){
      session()->set('key', 'sesion activa');
         $peliculaModel= new PeliculaModel();
-        
+        // $db= \Config\Database::connect();
+        // $builder= $db->table('peliculas');
+        // return $builder->limit(10, 20)->getCompiledSelect();
         echo view('Dashboard/pelicula/index.php', [
             'peliculas' => $peliculaModel->findAll(),
         ]);
