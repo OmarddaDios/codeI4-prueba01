@@ -9,7 +9,7 @@
 <body>
     <h1>Listado de Categorias</h1>
     <br>
-    <?= session('key'); ?>
+
     <br>
     <?= view('partials/_session.php'); ?>
     <br>

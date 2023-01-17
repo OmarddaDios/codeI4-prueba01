@@ -8,7 +8,8 @@ use CodeIgniter\Filters\DebugToolbar;
 use CodeIgniter\Filters\Honeypot;
 use CodeIgniter\Filters\InvalidChars;
 use CodeIgniter\Filters\SecureHeaders;
-
+use App\Filters\MiFiltro;
+use App\Filters\DashboardFilter;
 class Filters extends BaseConfig
 {
     /**
@@ -21,6 +22,8 @@ class Filters extends BaseConfig
         'honeypot'      => Honeypot::class,
         'invalidchars'  => InvalidChars::class,
         'secureheaders' => SecureHeaders::class,
+        'dashboard' => DashboardFilter::class
+        // 'mifiltro'      => MiFiltro::class 
     ];
 
     /**
@@ -29,6 +32,7 @@ class Filters extends BaseConfig
      */
     public array $globals = [
         'before' => [
+            // 'mifiltro'
             // 'honeypot',
             // 'csrf',
             // 'invalidchars',
@@ -60,5 +64,20 @@ class Filters extends BaseConfig
      * Example:
      * 'isLoggedIn' => ['before' => ['account/*', 'profiles/*']]
      */
-    public array $filters = [];
+    public array $filters = [
+        'dashboard' => [
+            'before' => [
+                'dashboard',
+                'dashboard/*'
+            ]
+        ]
+        // 'mifiltro' => [
+        //     // Quienes seran redirigidos
+        //     'before' => [
+        //         'dashboard/pelicula',
+        //         'dashboard/pelicula/*'
+            
+        //         ]
+        // ]
+    ];
 }

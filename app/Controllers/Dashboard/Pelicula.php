@@ -73,7 +73,7 @@ class Pelicula extends BaseController
     }
 
     public function index(){
-     session()->set('key', 'sesion activa');
+    //  session()->set('key', 'sesion activa');
         $peliculaModel= new PeliculaModel();
         // $db= \Config\Database::connect();
         // $builder= $db->table('peliculas');

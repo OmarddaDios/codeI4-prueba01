@@ -38,9 +38,19 @@ $routes->group('dashboard', function($routes){
     // $routes->presenter('pelicula', ['only' => 'index']);
     // $routes->resources('pelicula', ['only' => 'index']);
     // $routes->presenter('pelicula', ['only' => ['index', 'new', 'create']]);
+    // $routes->get('usuario/crear','\App\Controllers\Web\Usuario::crear_usuario');
+    // $routes->get('usuario/probar','\App\Controllers\Web\Usuario::probar_contrasena');
     $routes->presenter('pelicula', ['controller' => 'Dashboard\Pelicula']);
     $routes->presenter('categoria', ['except' => 'show', 'controller' => 'Dashboard\Categoria']);
+
 });
+$routes->get('login', '\App\Controllers\Web\Usuario::login', ['as'=>'usuario.login']);
+$routes->post('login', '\App\Controllers\Web\Usuario::login_post', ['as'=>'usuario.login_post']);
+
+$routes->get('register', '\App\Controllers\Web\Usuario::register', ['as'=>'usuario.register']);
+$routes->post('register', '\App\Controllers\Web\Usuario::register_post', ['as'=>'usuario.register_post']);
+
+$routes->get('logout', '\App\Controllers\Web\Usuario::logout', ['as'=>'usuario.logout']);
 /*
  * --------------------------------------------------------------------
  * Additional Routing
