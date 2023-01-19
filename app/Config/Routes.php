@@ -34,6 +34,11 @@ $routes->set404Override();
 //ejemplos
 // $routes->get('/Pelicula', 'Pelicula::index');
 // $routes->get('Pelicula/new', 'Pelicula::create');
+$routes->group('api', ['namespace'=>'App\Controllers\Api'], function($routes){
+    $routes->resource('pelicula');
+    $routes->resource('categoria');
+});
+
 $routes->group('dashboard', function($routes){
     // $routes->presenter('pelicula', ['only' => 'index']);
     // $routes->resources('pelicula', ['only' => 'index']);

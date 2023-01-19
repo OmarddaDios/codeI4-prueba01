@@ -21,13 +21,7 @@ class Categoria extends BaseController
             'categorias'=>$categoriaModel->find($id)
         ]);
     }
-    public function edit($id)
-    {
-        $categoriaModel= new CategoriaModel();
-        echo view('Dashboard/categoria/edit.php', [
-            'categorias'=>$categoriaModel->find($id)
-        ]);
-    }
+    
     public function create()
     {
         $categoriaModel= new CategoriaModel();
@@ -71,5 +65,12 @@ class Categoria extends BaseController
             return redirect()->back()->withInput();
         }
         return redirect()->to('/dashboard/categoria')->with('hellothere', 'Registro actualizado');
+    }
+    public function edit($id)
+    {
+        $categoriaModel= new CategoriaModel();
+        echo view('Dashboard/categoria/edit.php', [
+            'categorias'=>$categoriaModel->find($id)
+        ]);
     }
 }

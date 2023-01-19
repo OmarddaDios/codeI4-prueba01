@@ -15,10 +15,10 @@
     <br>
 <form action="<?= route_to('usuario.login_post')?>" method="post">
 <label for="email">Email/Usuario</label>    
-<input type="text" name="email" id="">
+<input type="text" name="email" id="email">
 <br>
 <label for="contrasena">Contrasena</label>    
-<input type="password" name="contrasena" id="">
+<input type="password" name="contrasena" id="contrasena">
 <br>
 <input type="submit" value="Enviar">
 <br>
